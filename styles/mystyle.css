@@ -6,16 +6,22 @@ h1{
 
 .container{
     display: flex;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .list-container {
     background-color: rgb(95, 173, 128);
     flex: 5;
+    padding: 20px 30px;
 }
 
 .form-container {
     background-color:  rgb(190, 176, 76);
     flex: 3;
+    padding: 20px 30px;
 }
 .my-form{
     margin-bottom: 10px;
@@ -37,6 +43,11 @@ h1{
 
 .task {
     display: flex;
+    margin-bottom: 15px;
+    border:1px solid grey;
+    border-radius: 4px;
+    
+
 }
 
 .task label {
