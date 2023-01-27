@@ -5,43 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/mystyle.css">
 </head>
-<body>
-    <nav>
-        <h1>The Very Best Task Manager Ever!</h1>
+<body class="whole-container">
+    <nav class="website">
+        <h1 class="websitename">The Very Best Task Manager Ever!</h1>
     </nav>
     
 
 
     <main class="container">
 
-        <section class="list-container">LIST
-        <button id="btnformswitch">Hide Form</button>
+        <section class="list-container">
+        <p class="userinfo">User Information</p>
+        <button id="btnformswitch" class="hideformbutton">Hide Form</button>
 
-        <!--Here-->
+        <!--here-->
         </section>
+        
 
         <section class="form-container">
             <div class="my-form">
                 <i id="iImportant" class="main-icon fa-solid fa-skull-crossbones"></i>
             </div>
             <div class="my-form">
-                <label>Title</label>
+                <label class="titlelable">Title</label>
                 <input id="txtTitle">
             </div>
             <div class="my-form">
-                <label>Description</label>
+                <label class="titlelable">Description</label>
                 <textarea id="txtDesc" row="3"></textarea>
             </div>
             <div class="my-form">
-                <label>Due Date</label>
+                <label class="titlelable">Due Date</label>
                 <input id="txtDueDate" type="datetime-local">
             </div>
             <div class="my-form">
-                <label>Category</label>
+                <label class="titlelable">Category</label>
                 <select id="selCategory">
                     <option>Family</option>
                     <option>Person</option>
@@ -49,11 +60,11 @@
                 </select>
             </div>
             <div class="my-form">
-                <label>Contact</label>
+                <label class="titlelable">Contact</label>
                 <input  id="txtContact" type="text">
             </div>
             <div class="my-form">
-                <label>Status</label>
+                <label class="titlelable">Status</label>
                 <select id="selStatus">
                     <option>Ready</option>
                     <option>In Progress</option>

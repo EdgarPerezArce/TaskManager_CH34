@@ -35,12 +35,32 @@ function saveTask() {
     let contact = $("#txtContact").val();
     let status = $("#selStatus").val();
     
-    let task = new Task(title, desc, dueDate, category, contact, status);
-    // save logic
+    let task = new Task(title, desc, dueDate, category, contact, status, isImportant);
+
     
-    // display logic
-    displayTask(task);
+    $.ajax({
+        type: "POST",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks/",
+        data: JSON.stringify(task),
+        contentType: "application/json",
+        success: function(res){
+            console.log(res);// res is a Json string
+
+            // display logic
+            displayTask(task);
+            // clearForm();
+        },
+        error: function(error) {
+            console.log(error);
+
+            alert("Unexpected Error");
+        }
+    });
+    
 }
+// function clearForm(); {
+//     $("#txtTitle").val("");
+// }
 
 function displayTask(task) {
     let syntax = `<div class="task">
@@ -61,11 +81,50 @@ function displayTask(task) {
     $(".list-container").append(syntax);
 }
 
+function loadTasks() {
+    $.ajax({
+        type:"GET",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(res) {
+            let data = JSON.parse(res); // will parse the json string into JS objects
+            console.log(data);
+            for(let i=0; i < data.length; i++){
+                let task = data[i]; // get every obj
+                if(task.name == "Edgar"){
+                    displayTask(task);
+                // if the task name is equal to your name, then display it
+                }
+                
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            
+        }
+    });
+
+}
+
+function testRequest() {
+    $.ajax({
+        type: "DELETE",
+        url: "https://fsdiapi.azurewebsites.net/",
+        success: function(res) {
+            console.log(res);
+        },
+        error: function (error) {
+            console.log(error);
+            
+        }
+    });
+}
+
 function init(){
     console.log("Task Manager!");
 
     // loads data
-
+    loadTasks();
+    
     // assigns events
     $("#iImportant").click(toggleImportant);
     $("#btnformswitch").click(toggleForm);
